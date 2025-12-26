@@ -598,8 +598,16 @@ canvas {
 
 
 @media (max-width: 600px) {
-  #contact {
+  #contact{
     padding: 1.5rem;
+
+  }
+}
+
+@media (max-width: 700px) {
+  button {
+    width: 50%;
+    font-size: 16px;
   }
 }
 
