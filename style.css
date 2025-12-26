@@ -606,9 +606,10 @@ canvas {
 
 @media (max-width: 900px) {
   button {
-    width: 50%;
+    width: 65%;
     font-size: 16px;
   }
 }
+
 
 
