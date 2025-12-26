@@ -14,8 +14,6 @@ body {
   align-items: center;
   position: relative;
   overflow-x: hidden;
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-    url("img/Background.jpg") no-repeat center center fixed;
   background-size: cover;
   background-position: center;
   background-attachment: scroll;
@@ -48,9 +46,6 @@ nav a {
   text-transform: uppercase;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
 
 .nav-btn {
   display: inline-block;
@@ -60,7 +55,7 @@ nav a:hover {
   background: rgba(255, 255, 255, 0.07);
   color: white;
   text-decoration: none;
-  border-radius: 0.5rem;
+  border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   font-weight: 600;
   font-size: 1.1rem;
@@ -69,8 +64,29 @@ nav a:hover {
 }
 
 .nav-btn:hover {
-  background: rgba(255, 255, 255, 0.16);
   transform: translateY(-2px);
+  letter-spacing: 3px;
+  background: linear-gradient(
+    135deg,
+  rgba(255, 0, 0, 0.55),   
+  rgb(202, 37, 59),    
+  rgba(190, 25, 25, 0.836)  
+  );
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgba(219, 58, 18, 0.726) 0px 7px 29px 0px;
+}
+.nav-btn:active {
+  letter-spacing: 3px;
+  background: linear-gradient(
+    135deg,
+  rgba(255, 0, 0, 0.55),   
+  rgb(202, 37, 59),    
+  rgba(190, 25, 25, 0.836)  
+  );
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgba(219, 58, 18, 0.726) 0px 7px 29px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
 }
 
 main {
@@ -99,26 +115,31 @@ h1 {
   font-size: 1.125rem;
   margin-bottom: 1.5rem;
 }
-
+/*#FF3131,*/
 .profile-photo {
-  position: relative;
-  width: 15rem;
-  height: 15rem;
-  border-radius: 35%;
-  overflow: hidden;
-  border: 8px solid rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  margin-bottom: 1.5rem;
-  transition: transform 0.5s;
+ position: relative;
+width: 15rem;
+height: 15rem;
+border-radius: 35%;
+overflow: hidden;
+border: 8px solid rgba(255, 255, 255, 0.2);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+background: linear-gradient(
+  90deg,
+  transparent,
+  #FF073A,
+  #79050e,
+  #f00909c2,
+  transparent
+);
+background-size: 300% 300%;
+animation: glowMove 5s linear infinite;
+box-shadow:
+  0 0 20px rgba(255, 150, 100, 0.6),
+  0 25px 50px -12px rgba(0, 0, 0, 0.25);
+margin-bottom: 1.5rem;
+transition: transform 0.5s;
 }
 
 .profile-photo:hover {
@@ -340,6 +361,14 @@ h2 {
   }
 }
 
+@keyframes glowMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
 
 /* End of style.css */
 
@@ -461,10 +490,6 @@ form{
   margin-top: 20px;
 }
 
-.input::placeholder,
-.textarea::placeholder {
-  color: rgba(255, 255, 255, 0.747);
-}
 
 input, textarea{
   width: 100%;
@@ -477,28 +502,82 @@ input, textarea{
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(255, 255, 255, 0.747);
+}
+
+input:focus,
+textarea:focus {
+  border-color: #e40b0b;
+  box-shadow: 0 0 15px rgba(231, 18, 18, 0.4);
+}
+
 button {
-  padding: 14px;
-  border-radius: 16px;
-  cursor: pointer;
+  display: block;
+  margin: 1rem auto 0;
+  width: 35%;
+  font-family: inherit;
+  font-size: 18px;
   background: linear-gradient(
     135deg,
   rgba(255, 0, 0, 0.55),   
   rgb(202, 37, 59),    
   rgba(190, 25, 25, 0.836)  
   );
-  border: none;
   color: white;
-  font-size: 1.05rem;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.8em 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
 }
 
-.contact-form button:hover {
+button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
+}
+
+button svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transition: all 0.3s;
+}
+
+button .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-right: 0.5em;
+  transition: all 0.3s;
+}
+
+button:hover .svg-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+button:hover svg {
+  transform: rotate(45deg);
+}
 /* FOOTER */
 
 footer {
@@ -507,6 +586,15 @@ footer {
   opacity: 0.7;
 }
 
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at top, #0f0c29, #000);
+}
 
 
 @media (max-width: 600px) {
