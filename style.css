@@ -604,10 +604,11 @@ canvas {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   button {
     width: 50%;
     font-size: 16px;
   }
 }
+
 
