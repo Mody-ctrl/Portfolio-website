@@ -69,19 +69,18 @@ document.addEventListener('DOMContentLoaded', function () {
         projectsContainer.appendChild(projectElement);
     });
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+    // Smooth scrolling لما اتنقل من سيكشن للتاني من ازرار الهيدر
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
     });
+  });
 });
 
-//for background animation
 
+//Background animations
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
@@ -102,7 +101,7 @@ class Particle {
   draw() {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = "#ff073a"; // نيون أحمر
+    ctx.fillStyle = "#ff073a"; 
     ctx.fill();
   }
 
@@ -117,12 +116,12 @@ class Particle {
   }
 }
 
-// إنشاء الإلكترونات
+// Electronics in background
 for (let i = 0; i < 120; i++) {
   particles.push(new Particle());
 }
 
-// رسم خطوط بينهم
+// Lines between electronics
 function connect() {
   for (let a = 0; a < particles.length; a++) {
     for (let b = a; b < particles.length; b++) {
@@ -157,3 +156,4 @@ window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
