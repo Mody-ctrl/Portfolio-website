@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Projects
     const projects = [
         { title: 'E-commerce website', description: 'F&b shop for food and drinks', url: 'https://github.com/Mody-ctrl/E-commerce-2' },
-        { title: 'CSS Reference Guide', description: 'Complete guide to CSS properties and techniques', url: 'https://css-elements-by-ahmed.netlify.app/' },
+        { title: 'CSS Reference Guide', description: 'Complete guide to CSS properties and techniques', url: 'https://css-refrences-guide.vercel.app/' },
         { title: 'Portfolio Website', description: 'Personal portfolio to showcase projects and skills', url: 'https://mody-ctrl.github.io/Portfolio/' }];
 
     // Add skills 
@@ -157,4 +157,5 @@ window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
 
