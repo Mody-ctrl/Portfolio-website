@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Projects
     const projects = [
-        { title: 'Shop Hub', description: 'F&b shop for food and drinks', url: 'https://shop-hub-topaz-xi.vercel.app/' },
+        { title: 'Shop Hub', description: 'ShopHub premuim shoping website', url: 'https://shop-hub-topaz-xi.vercel.app/' },
         { title: 'CSS Reference Guide', description: 'Complete guide to CSS properties and techniques', url: 'https://css-refrences-guide.vercel.app/' },
         { title: 'Portfolio Website', description: 'Personal portfolio to showcase projects and skills', url: 'https://mody-ctrl.github.io/Portfolio/' }];
 
@@ -158,6 +158,7 @@ window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
 
 
 
