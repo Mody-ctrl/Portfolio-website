@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //Skills
     const skills = [
         { name: 'JavaScript', icon: '<i class="fab fa-js text-yellow-500"></i>', color: 'text-yellow-500' },
+        { name: 'TypeScript', icon: '<i class="fab fa-typescript text-blue-600"></i>', color: 'text-blue-600' },
         { name: 'HTML5', icon: '<i class="fab fa-html5 text-orange-600"></i>', color: 'text-orange-600' },
         { name: 'CSS3', icon: '<i class="fab fa-css3-alt text-blue-600"></i>', color: 'text-blue-600' },
         { name: 'React', icon: '<i class="fab fa-react text-blue-400"></i>', color: 'text-blue-400' },
@@ -157,5 +158,6 @@ window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
 
 
