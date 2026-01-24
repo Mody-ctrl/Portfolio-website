@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { name: 'React', icon: '<i class="fab fa-react text-blue-400"></i>' },
     { name: 'Git', icon: '<i class="fab fa-git-alt text-red-600"></i>' },
     { name: 'Tailwind CSS', icon: '<i class="fas fa-wind text-teal-400"></i>' },
-    { name: 'Vanilla CSS', icon: '<i class="fas fa-code text-gray-600"></i>' }
+    { name: 'Vanilla js', icon: '<i class="fas fa-code text-gray-600"></i>' }
   ];
 
   // ================= Social Links =================
