@@ -336,7 +336,7 @@ h1::after {
   border-radius: 35%;
   overflow: visible;
   margin-bottom: 2rem;
-  margin-top: 20px; /* Adjusted: lowered down as per preference */
+  margin-top: 0; 
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -801,10 +801,11 @@ h2::before {
   position: relative;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.08) 0%,
-    rgba(255, 255, 255, 0.02) 100%
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
   );
-  backdrop-filter: blur(20px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(14px);
   border-radius: 1.25rem;
   padding: 2rem;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1589,7 +1590,7 @@ canvas {
 .skills-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   gap: 24px;
 }
 
@@ -1605,6 +1606,7 @@ canvas {
 .about {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 2rem;
   border-radius: 1.2rem;
   background: linear-gradient(
