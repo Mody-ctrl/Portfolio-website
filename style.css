@@ -113,10 +113,19 @@ body {
 }
 
 header {
+
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+   background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(20px);
+  border-radius: 50px;
+  border: 1px solid rgba(102, 100, 100, 0.575);
   max-width: 80rem;
   margin-bottom: 10px;
   padding: 1rem 1rem;
@@ -255,6 +264,42 @@ section {
   margin-bottom: 2rem;
 }
 
+/* Two-column layout for intro section */
+.intro-container {
+  display: flex;
+  gap: 4rem;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100rem;
+}
+
+.intro-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+  min-width: 0;
+  margin-left: -40px;
+}
+
+.intro-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+  min-width: 0;
+  margin-right: -20px;
+  margin-top: -60px;
+}
+
+
 h1 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -282,6 +327,7 @@ h1::after {
 .subtitle {
   font-size: 1.25rem;
   margin-bottom: 2rem;
+  margin-top: -20px;
   color: rgba(255, 255, 255, 0.85);
   font-weight: 400;
   letter-spacing: 2px;
@@ -298,47 +344,79 @@ h1::after {
 /*#FF3131,*/
 .profile-photo {
   position: relative;
-  width: 15rem;
-  height: 15rem;
+  width: 18rem;
+  height: 18rem;
   border-radius: 35%;
   overflow: visible;
   margin-bottom: 2rem;
+  margin-top: -20px;
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* Animated glow base */
 .profile-photo::before {
   content: "";
   position: absolute;
-  inset: -12px;
+  inset: -15px;
   border-radius: 35%;
   background: linear-gradient(135deg, #ff073a, #c9184a, #ff4d6d, #ff073a);
-  z-index: -1;
-  filter: blur(15px);
-  opacity: 0.4;
+  z-index: -2;
+  filter: blur(20px);
+  opacity: 0.6;
+  transition: all 0.6s ease;
 }
 
+/* Double spinning border effect */
 .profile-photo::after {
   content: "";
   position: absolute;
-  inset: -8px;
+  inset: -10px;
   border-radius: 35%;
-  border: 3px solid transparent;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 7, 58, 0.8),
-    rgba(201, 24, 74, 0.8),
-    rgba(255, 77, 109, 0.8),
-    rgba(255, 7, 58, 0.8)
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  background: 
+    conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 40deg,
+      #ff073a 80deg,
+      #ff4d6d 140deg,
+      #ffd60a 200deg,
+      #c9184a 260deg,
+      #ff073a 320deg,
+      transparent 340deg,
+      transparent 360deg
+    );
   z-index: -1;
+  filter: drop-shadow(0 0 10px rgba(255, 7, 58, 0.8));
+  transition: all 0.6s ease;
+}
+
+/* Second spinning layer for depth */
+.profile-photo {
+  filter: drop-shadow(0 0 20px rgba(255, 7, 58, 0.3));
+  transition: all 0.6s ease;
+}
+
+@keyframes spinBorder {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
 }
 
 .profile-photo:hover {
@@ -346,8 +424,12 @@ h1::after {
 }
 
 .profile-photo:hover::before {
-  opacity: 0.9;
-  filter: blur(20px);
+  opacity: 1;
+  filter: blur(25px);
+}
+
+.profile-photo:hover::after {
+  filter: drop-shadow(0 0 15px rgba(255, 7, 58, 1));
 }
 
 .profile-photo img {
@@ -360,7 +442,7 @@ h1::after {
   box-shadow:
     0 0 30px rgba(255, 7, 58, 0.4),
     inset 0 0 30px rgba(255, 7, 58, 0.1);
-  transition: box-shadow 0.5s ease;
+  transition: all 0.6s ease;
 }
 
 .profile-photo:hover img {
@@ -377,7 +459,7 @@ h1::after {
   font-size: 0.875rem;
   margin-bottom: 2.5rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .stats-grid > div {
@@ -443,7 +525,7 @@ h1::after {
 }
 
 .bio {
-  max-width: 56rem;
+  max-width: 700px;
   margin-bottom: 2rem;
   line-height: 1.8;
   font-size: 1.05rem;
@@ -461,6 +543,7 @@ h1::after {
   border-radius: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease;
+  width: 100%;
 }
 
 .bio:hover {
@@ -496,16 +579,17 @@ h1::after {
   backdrop-filter: blur(20px);
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.12) 0%,
-    rgba(255, 255, 255, 0.05) 100%
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
   );
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50px;
   padding: 0.85rem 1.5rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 30px;;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   overflow: hidden;
 }
@@ -1470,3 +1554,137 @@ canvas {
   border-radius: 10px;
   margin-bottom: 5px;
 }
+
+
+.skill-level {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fa0637af;
+}
+
+
+.custom-icon{
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* ===== Project Image ===== */
+
+.about {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  padding: 3rem 5vw;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ===== Grid Layout ===== */
+
+.skills-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
+}
+
+
+/* ===== Cards ===== */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about:hover {
+  border-bottom: #ff073a solid 5px;
+  transform: translateY(-10px);
+  box-shadow: 0 16px 40px rgba(255, 7, 58, 0.25);
+}
+
+.about h3 {
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.about p {
+  font-size: 14px;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+
+/* ===== Tags ===== */
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.about-tags span {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid #ff073a;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.about-tags span:hover {
+  background: #ff073a;
+  color: #000;
+}
+
+
+/* ===== Mobile Tuning ===== */
+
+@media (max-width: 600px) {
+  .about {
+    padding: 2rem 1.2rem;
+  }
+}
+
+/* Responsive layout for intro section */
+@media (max-width: 968px) {
+  .intro-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .intro-left,
+  .intro-right {
+    width: 100%;
+  }
+}
+
+

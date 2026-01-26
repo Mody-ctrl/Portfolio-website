@@ -2,13 +2,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ================= Skills =================
   const skills = [
-    { name: 'JavaScript', icon: '<i class="fab fa-js text-yellow-500"></i>' },
-    { name: 'TypeScript', icon: '<i class="fab fa-typescript text-blue-600"></i>' },
-    { name: 'HTML5', icon: '<i class="fab fa-html5 text-orange-600"></i>' },
-    { name: 'CSS3', icon: '<i class="fab fa-css3-alt text-blue-600"></i>' },
-    { name: 'React', icon: '<i class="fab fa-react text-blue-400"></i>' },
-    { name: 'Git', icon: '<i class="fab fa-git-alt text-red-600"></i>' },
-    { name: 'Tailwind CSS', icon: '<i class="fas fa-wind text-teal-400"></i>' },
+    { name: 'JavaScript', icon: '<img src="img/Skills icons/javascript.svg" alt="JavaScript" class="custom-icon">' },
+    { name: 'TypeScript', icon: '<img src="img/Skills icons/typescript.svg" alt="TypeScript" class="custom-icon">' },
+    { name: 'HTML5', icon: '<img src="img/Skills icons/html-5.svg" alt="HTML5" class="custom-icon">' },
+    { name: 'CSS3', icon: '<img src="img/Skills icons/css.svg" alt="CSS3" class="custom-icon">'},
+    { name: 'React', icon: '<img src="img/Skills icons/react.svg" alt="React" class="custom-icon">' },
+    { name: 'Git', icon: '<img src="img/Skills icons/git.svg" alt="Git" class="custom-icon">' },
+    { name: 'Tailwind CSS', icon: '<img src="img/Skills icons/icons8-tailwindcss.svg" alt="Tailwind CSS" class="custom-icon">' },
+    { name: 'next.js', icon: '<img src="img/Skills icons/Next.js_Symbol_0.svg" alt="next.js" class="custom-icon">' },
+    { name: 'vite', icon: '<img src="img/Skills icons/vite.svg" alt="vite" class="custom-icon">' },
+    { name: 'figma', icon: '<img src="img/Skills icons/figma.svg" alt="figma" class="custom-icon">' },
+    { name: 'redux', icon: '<img src="img/Skills icons/redux.svg" alt="redux" class="custom-icon">' },
+    { name: 'GSAP', icon: '<img src="img/Skills icons/gsap-greensock.svg" alt="GSAP" class="custom-icon">' }
   ];
 
   // ================= Social Links =================
@@ -63,7 +68,9 @@ document.addEventListener('DOMContentLoaded', function () {
   skills.forEach(skill => {
     const div = document.createElement('div');
     div.className = 'skill-item';
-    div.innerHTML = `${skill.icon} ${skill.name}`;
+    div.innerHTML = `${skill.icon ? `<span class="skill-icon">${skill.icon}</span>` : ''}
+    ${skill.name ? `<span class="skill-name">${skill.name}</span>` : ''} 
+    ${skill.level ? `<span class="skill-level">(${skill.level})</span>` : ''}`;
     skillsContainer.appendChild(div);
   });
 

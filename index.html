@@ -10,14 +10,15 @@
     <link rel="icon" type="image"  sizes="32x32" href="img/logo.png">
 </head>
 <body class="animate-on-load">
-
-    <canvas id="particles"></canvas>
+<canvas id="particles"></canvas>
+    
     
     <!-- Header -->
     <header>
         <nav> 
+            <a href="#about-me" class="nav-btn">About</a>
             <a href="#projects" class="nav-btn">Projects</a>
-            <a href="#contact" class="nav-btn">Get in touch</a>
+            <a href="#contacts" class="nav-btn">Get in touch</a>
             <a href="Resume/Ahmed_Abobaker_Front-End Developer_resume (3)-compressed.pdf" class="nav-btn" target="_blank">View CV</a>
             <a href="Resume/Ahmed_Abobaker_Front-End Developer_resume (3)-compressed.pdf" class="nav-btn" target="_blank" download>Download CV</a>
         </nav>
@@ -26,40 +27,114 @@
     <div class="divider"></div>
     <main>
         <section class="intro-section">
-            <h1>Ahmed Abobaker</h1>
-            <p class="subtitle">Front-End Developer</p>
+            <div class="intro-container">
+                <div class="intro-left">
+                    <div class="stats-grid">
+                        <div>
+                            <p class="stat-number">0</p>
+                            <p>Years of Experience</p>
+                        </div>
+                        <div>
+                            <p class="stat-number">100%</p>
+                            <p>Satisfied Clients</p>
+                        </div>
+                        <div>
+                            <p class="stat-number">0</p>
+                            <p>Clients Worldwide</p>
+                        </div>
+                        <div>
+                            <p class="stat-number">3</p>
+                            <p>Projects Done</p>
+                        </div>
+                    </div>
+                    <p class="bio">Building creative, scalable, and high-performance web. Passionate about modern tech and elegant user experiences.</p>
+                </div>
 
-            <div class="profile-photo">
-                <img src="img/photo_2025-12-24_18-27-29.jpg" alt="Profile photo of Ahmed Abobaker" id="profile-img">
-            </div>
+                <div class="intro-right">
+                    <h1>Ahmed Abobaker</h1>
+                    <p class="subtitle">Front-End Developer</p>
 
-    <div class="stats-grid">
-            <div>
-                <p class="stat-number">0</p>
-                <p>Years of Experience</p>
+                    <div class="profile-photo">
+                        <img src="img/photo_2025-12-24_18-27-29.jpg" alt="Profile photo of Ahmed Abobaker" id="profile-img">
+                    </div>
+                </div>
             </div>
-            <div>
-                <p class="stat-number">100%</p>
-                <p>Satisfied Clients</p>
-            </div>
-            <div>
-                <p class="stat-number">0</p>
-                <p>Clients Worldwide</p>
-            </div>
-            <div>
-                <p class="stat-number">3</p>
-                <p>Projects Done</p>
-            </div>
-    </div>
+<div class="divider"></div>
 
+        <h2 id="about-me">About Me</h2>
 
-        <p class="bio">Building creative, scalable, and high-performance web. Passionate about modern tech and elegant user experiences.</p>
+<div class="skills-grid">
+<!--About 1-->
+<div class="about">
+  <h3>Clean & Scalable Code</h3>
+
+  <p>
+    Writing maintainable, production-ready code following industry
+    best practices and clean architecture principles.
+  </p>
+
+  <div class="about-tags">
+    <span>TypeScript</span>
+    <span>React</span>
+    <span>Next.js</span>
+    <span>Clean Architecture</span>
+  </div>
+</div>
+
+ <!-- About 2 -->
+    <div class="about">
+  <h3>Modern UI/UX Design</h3>
+  <p>
+    Creating beautiful, responsive interfaces with pixel-perfect
+    attention to detail and smooth animations.
+  </p>
+  <div class="about-tags">
+    <span>Figma</span>
+    <span>Tailwind CSS</span>
+    <span>Framer Motion</span>
+    <span>GSAP</span>
+  </div>
+  
+</div>
+<!-- About 3 -->
+ <div class="about">
+  <h3>Performance Optimization</h3>
+
+  <p>
+    Optimizing applications for blazing-fast speed, SEO, and
+    core web vitals for better user experience.
+  </p>
+
+  <div class="about-tags">
+    <span>Performance</span>
+    <span>SEO</span>
+    <span>Core Web Vitals</span>
+    <span>Lighthouse</span>
+  </div>
+</div>
+<!-- About 4 -->
+ <div class="about">
+  <h3>User-Focused Development</h3>
+
+  <p>
+    Building intuitive, accessible, and user-centered experiences
+    with strong focus on usability and real-world performance.
+  </p>
+
+  <div class="about-tags">
+    <span>Accessibility</span>
+    <span>UX Thinking</span>
+    <span>Responsive Design</span>
+    <span>User Testing</span>
+  </div>
+  </div>
+</div>
 
         <!-- line between sections -->
     <div class="divider"></div>
 
         <!-- Skills and Social Links -->
-          <h2 id="works">Skills</h2>
+        <h2 id="works">Front-End Skills</h2>
         <div class="skills-container" id="skills">
             </div>
             <div class="divider"></div>
@@ -75,6 +150,7 @@
         <h2 id="works">Projects</h2>
         <section class="projects-grid" id="projects">
     </section>
+
         <!-- line between sections -->
         <div class="divider"></div>
     </main>
@@ -90,14 +166,14 @@
     
     <section id="contacts" class="section-5">
     <h2>Contact Me</h2>
-  <form class="contact-form">
+    <form class="contact-form">
     <input class="textarea" type="text" placeholder="Name" required>
     <input class="textarea" type="email" placeholder="Email" required>
     <textarea  placeholder="Message"></textarea>
 <button>
     <div class="svg-wrapper-1">
     <div class="svg-wrapper">
-     <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <g>
         <path fill="none" d="M0 0h24v24H0z"/>
         <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"/>
