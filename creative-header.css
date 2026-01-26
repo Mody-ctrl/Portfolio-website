@@ -1,0 +1,31 @@
+/* Creative Header Extensions */
+header {
+  position: fixed !important;
+  top: 1.5rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 90% !important;
+  max-width: 75rem !important;
+  background: rgba(10, 10, 10, 0.4) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  border-radius: 100px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  z-index: 1000 !important;
+}
+
+@media (max-width: 768px) {
+  header {
+    top: 0.5rem !important;
+    border-radius: 20px !important;
+    width: 95% !important;
+    padding: 0.75rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    position: absolute !important;
+    width: 98% !important;
+    top: 0.5rem !important;
+  }
+}
