@@ -132,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
 // ================= Background Animation =================
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
@@ -205,3 +204,104 @@ window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ================= login animations  =================
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("intro-overlay").classList.add("intro-hide");
+  }, 2800);
+});
+
+
+const nameText = "Ahmed Abobaker";
+const typedName = document.getElementById("typed-name");
+
+let i = 0;
+
+function typeSmooth() {
+  if (i < nameText.length) {
+    typedName.textContent += nameText[i];
+    i++;
+    setTimeout(typeSmooth, 80);
+  }
+}
+
+window.addEventListener("load", () => {
+  typeSmooth();
+
+ setTimeout(() => {
+  cinematicExit();
+  }, 3200);
+
+const introCanvas = document.getElementById("intro-particles");
+const introCtx = introCanvas.getContext("2d");
+
+function resize() {
+  introCanvas.width = innerWidth;
+  introCanvas.height = innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+const dots = Array.from({ length: 60 }, () => ({
+  x: Math.random() * introCanvas.width,
+  y: Math.random() * introCanvas.height,
+  r: Math.random() * 1.5 + 0.5,
+  s: Math.random() * 0.3 + 0.1
+}));
+
+function animateDots() {
+  introCtx.clearRect(0,0,introCanvas.width,introCanvas.height);
+  dots.forEach(d => {
+    d.y -= d.s;
+    if (d.y < 0) d.y = introCanvas.height;
+
+    introCtx.beginPath();
+    introCtx.arc(d.x, d.y, d.r, 0, Math.PI*2);
+    introCtx.fillStyle = "rgba(255,80,80,0.6)";
+    introCtx.fill();
+  });
+  requestAnimationFrame(animateDots);
+}
+
+animateDots();
+
+});
+
+function cinematicExit() {
+  const pieces = document.querySelectorAll(".intro-piece");
+
+  pieces.forEach((el, i) => {
+    const dir = i % 2 === 0 ? 1 : -1;
+
+    const x = dir * (220 + i * 120);
+    const y = -120 - i * 80;
+    const z = -300 - i * 160;
+
+    el.style.transform = `
+      translate3d(${x}px, ${y}px, ${z}px)
+      rotate(${dir * 18}deg)
+      scale(1.15)
+    `;
+
+    el.style.opacity = "0";
+  });
+
+  setTimeout(() => {
+    document.getElementById("intro-overlay").remove();
+  }, 1500);
+}    
